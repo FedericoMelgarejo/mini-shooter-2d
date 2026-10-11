@@ -6,23 +6,126 @@
 <title>Mini Shooter 2D — Vista Cenital</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body {
-    width: 100%; height: 100%;
-    background: #0b0e14;
-    overflow: hidden;
-    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    user-select: none;
+  body {
+    min-height: 100vh;
+    background: radial-gradient(circle at 50% 0%, #101a2e 0%, #080b14 60%);
+    color: #eaf6ff;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    gap: 10px;
   }
-  #game {
-    display: block;
-    width: 100vw;
-    height: 100vh;
-    cursor: none;
+  h1 {
+    font-size: clamp(28px, 5vw, 46px);
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #6ee7ff;
+    text-shadow: 0 0 26px rgba(110, 231, 255, 0.6);
+    text-align: center;
   }
+  .sub {
+    color: rgba(234, 246, 255, 0.6);
+    font-size: 16px;
+    margin-bottom: 34px;
+    text-align: center;
+  }
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 26px;
+    width: 100%;
+    max-width: 980px;
+  }
+  a.card {
+    flex: 1 1 320px;
+    max-width: 440px;
+    text-decoration: none;
+    color: inherit;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(110, 231, 255, 0.22);
+    border-radius: 16px;
+    padding: 26px 24px 22px;
+    transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+  }
+  a.card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(110, 231, 255, 0.7);
+    box-shadow: 0 12px 40px rgba(110, 231, 255, 0.16);
+  }
+  .tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: #7ef9ff;
+    border: 1px solid rgba(126, 249, 255, 0.4);
+    border-radius: 999px;
+    padding: 3px 10px;
+    margin-bottom: 14px;
+  }
+  .card h2 { font-size: 22px; margin-bottom: 10px; }
+  .card p { font-size: 15px; line-height: 1.5; color: rgba(234, 246, 255, 0.72); }
+  .card ul { margin: 14px 0 18px; padding-left: 18px; font-size: 14px; color: rgba(234, 246, 255, 0.72); }
+  .card li { margin: 4px 0; }
+  .play {
+    display: inline-block;
+    font-weight: 800;
+    font-size: 15px;
+    color: #04121a;
+    background: linear-gradient(90deg, #3aa7ff, #7ef9ff);
+    border-radius: 999px;
+    padding: 10px 22px;
+  }
+  footer {
+    margin-top: 40px;
+    font-size: 13px;
+    color: rgba(234, 246, 255, 0.4);
+    text-align: center;
+  }
+  footer a { color: rgba(126, 249, 255, 0.8); }
 </style>
 </head>
 <body>
-<canvas id="game"></canvas>
-<script src="game.js"></script>
+  <h1>MINI SHOOTER 2D</h1>
+  <p class="sub">Disparos en vista cenital · JavaScript puro sobre Canvas · sin dependencias</p>
+
+  <div class="cards">
+    <a class="card" href="shooter-cenital.html">
+      <span class="tag">Versión 2</span>
+      <h2>Archivo único</h2>
+      <p>Shooter con cuatro tipos de enemigos, habilidad de onda de choque y efectos de partículas.</p>
+      <ul>
+        <li>Todo en un solo <code>.html</code></li>
+        <li>Enemigos: básico, rápido, tirador y tanque</li>
+        <li>Habilidad <strong>PULSO</strong> que se carga matando</li>
+        <li>3 vidas, récord guardado en el navegador</li>
+      </ul>
+      <span class="play">▶ Jugar</span>
+    </a>
+
+    <a class="card" href="shooter-2d.html">
+      <span class="tag">Versión 1</span>
+      <h2>Modular</h2>
+      <p>La primera versión del juego, separada en una página y su archivo de lógica.</p>
+      <ul>
+        <li><code>shooter-2d.html</code> + <code>game.js</code></li>
+        <li>Disparos, enemigos y onda de choque</li>
+        <li>3 vidas con dificultad creciente</li>
+        <li>Récord guardado en el navegador</li>
+      </ul>
+      <span class="play">▶ Jugar</span>
+    </a>
+  </div>
+
+  <footer>
+    Controles: <strong>WASD</strong>/flechas para moverte · ratón para apuntar y disparar ·
+    <strong>Espacio</strong> o clic derecho para la habilidad · <strong>P</strong> para pausar<br>
+    Código en <a href="https://github.com/FedericoMelgarejo/mini-shooter-2d">GitHub</a>
+  </footer>
 </body>
 </html>
